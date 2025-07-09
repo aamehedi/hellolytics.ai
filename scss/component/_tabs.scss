@@ -1,0 +1,68 @@
+.wg-tabs {
+    .menu-tab {
+        @include flex(center, center);
+        gap: 4px;
+        white-space: nowrap;
+        border-radius: 1000px;
+        border: 1px solid #1e2252;
+        width: max-content;
+        padding: 6px;
+        margin: 0px auto 71px;
+        &.style-2 {
+            margin: 0px auto 41px;
+        }
+        position: relative;
+        .item {
+            @include transition3;
+
+            a {
+                position: relative;
+                display: block;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                color: var(--Text-2);
+                padding: 6px 24px;
+                border-radius: 100px;
+                background: #00041e;
+
+                &::after {
+                    content: "";
+                    @include border-linear;
+                    border-radius: 100px;
+                }
+                &:hover {
+                    color: var(--Primary);
+                }
+            }
+            &.active {
+                a {
+                    box-shadow: 0px 0px 6px 0px #9949ff80;
+                    color: var(--Primary);
+                    &::after {
+                        background: linear-gradient(
+                            90deg,
+                            #4a56ff 0%,
+                            rgba(74, 86, 255, 0.5) 100%
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    .widget-content-tab {
+        .widget-content-inner {
+            @include hidden;
+            &.active {
+                @include visible;
+            }
+        }
+    }
+    > .bloom {
+        width: 336px;
+        height: 556px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
