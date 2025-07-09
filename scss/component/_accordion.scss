@@ -1,0 +1,189 @@
+//reset accordion
+.accordion {
+    .accordion-button {
+        @include transition3;
+        position: relative;
+        background-color: transparent;
+        &::after {
+            @include transition3;
+            content: "";
+            margin-left: unset;
+            background-image: unset;
+            width: auto;
+            height: max-content;
+            display: block;
+        }
+        &::before {
+            @include transition3;
+        }
+        &:not(.collapsed) {
+            background-color: unset;
+            box-shadow: unset;
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+        &:focus {
+            box-shadow: unset;
+        }
+    }
+    .accordion-item {
+        border-color: transparent;
+        background-color: transparent;
+    }
+    .accordion-collapse {
+        @include transition3;
+    }
+    .accordion-body {
+        @include transition3;
+    }
+}
+//end reset
+
+.tf-accordion {
+    border-radius: 16px;
+    background: linear-gradient(270.44deg, #01051d 0.38%, #030826 99.09%);
+    border: 1px solid var(--Border);
+    position: relative;
+
+    .bloom {
+        transform: unset;
+        left: unset;
+        &.s1 {
+            top: 109px;
+            right: 86px;
+        }
+        &.s2 {
+            background: #5935e999;
+            top: 38px;
+            left: 140px;
+        }
+    }
+    .accordion-button {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+        color: var(--Text-3);
+        padding: 31px 50px 41px 48px;
+        position: relative;
+
+        &:not(.collapsed) {
+            padding: 30px 50px 21px 48px;
+            .icon {
+                &::after {
+                    transform: translate(-50%, -50%) rotate(180deg);
+                }
+                &::before {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                }
+            }
+        }
+        &.hover-ic-type-2 {
+            &:not(.collapsed) {
+                .icon {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+    .icon {
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        @include flex(center, center);
+        border-radius: 6.84px;
+        background-color: var(--Bg-4);
+        position: absolute;
+        top: 36px;
+        right: 48px;
+        @include transition3;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 3px;
+            background-color: var(--White);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include transition3;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            @include transition3;
+
+            height: 12px;
+            width: 3px;
+            background-color: var(--White);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &.style-2 {
+            top: 35px;
+            width: 26px;
+            height: 26px;
+            &::after,
+            &::before {
+                content: none;
+            }
+            i {
+                font-size: 13px;
+            }
+        }
+    }
+    .accordion-body {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: var(--Text-3);
+        padding: 0px 0px 30px 48px;
+        max-width: 830px;
+        width: 100%;
+    }
+    .accordion-item {
+        border-bottom: 1px solid var(--Border-5);
+    }
+    &.style-2 {
+        border: unset;
+        background: unset;
+        border-radius: unset;
+        .accordion-item {
+            background: linear-gradient(
+                180deg,
+                rgba(7, 7, 38, 0.5) 0%,
+                rgba(18, 24, 102, 0.5) 100%
+            );
+            border: 1px solid var(--Border-3);
+            border-radius: 14.4px;
+            position: relative;
+            margin-bottom: 10px;
+            &.last {
+                margin-bottom: 0px;
+            }
+        }
+        .accordion-button {
+            padding: 33px 90px 33px 49px;
+            font-weight: 500;
+        }
+        &.type-2 {
+            .accordion-item {
+                margin-bottom: 25px;
+                &.last {
+                    margin-bottom: 0px;
+                }
+            }
+            .accordion-button {
+                padding: 31px 90px 34px 49px;
+                &:not(.collapsed) {
+                    padding: 31px 90px 42px 49px;
+                }
+            }
+            .accordion-body {
+                padding: 0px 70px 33px 49px;
+            }
+        }
+    }
+}

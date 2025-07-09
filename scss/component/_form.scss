@@ -1,0 +1,205 @@
+form {
+    position: relative;
+    z-index: 30;
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+        outline: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        width: 100%;
+        padding: 23px 19px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        background-color: var(--White);
+        border: 1px solid var(--White);
+        border-radius: 14.4px;
+        color: var(--Black);
+        overflow: hidden;
+        margin-bottom: 0;
+        &::placeholder {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: var(--Body-text);
+        }
+    }
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        background-color: transparent;
+        overflow: hidden;
+        padding: 0;
+    }
+    textarea {
+        padding: 18px 19px;
+        height: 176px;
+    }
+    .cols {
+        @include d-flex();
+        gap: 28px;
+        > * {
+            width: 100%;
+        }
+    }
+    &.style-2 {
+        input {
+            border-radius: 4px;
+            padding: 17px 20px;
+        }
+    }
+    &.style-3 {
+        input {
+            padding: 24px 29px;
+            background: linear-gradient(
+                180deg,
+                rgba(7, 7, 38, 0.5) 0%,
+                rgba(18, 24, 102, 0.5) 100%
+            );
+            color: var(--White);
+            border-color: transparent;
+            &::placeholder {
+                color: var(--Text-2);
+            }
+        }
+        textarea {
+            padding: 22px 29px;
+            height: 169px;
+
+            background: linear-gradient(
+                180deg,
+                rgba(7, 7, 38, 0.5) 0%,
+                rgba(18, 24, 102, 0.5) 100%
+            );
+            color: var(--White);
+            border-color: transparent;
+            &::placeholder {
+                color: var(--Text-2);
+            }
+        }
+    }
+}
+.form_sub {
+    fieldset {
+        margin-bottom: 23px;
+        input {
+            background-color: transparent;
+            border-radius: unset;
+            border: unset;
+            border-bottom: 1px solid var(--Text-2);
+            padding: 0px;
+            padding-bottom: 6px;
+            color: var(--White);
+            &:focus {
+                border-color: var(--White);
+            }
+        }
+    }
+}
+.form_search {
+    position: relative;
+    &.type_2 {
+        fieldset {
+            input {
+                color: var(--White);
+                padding: 17px 130px 17px 62px;
+                border-radius: 100px;
+                background: #1d217b;
+                border-color: transparent;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                &::placeholder {
+                    color: var(--Text-2);
+                }
+            }
+        }
+        .icon {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 24px;
+            transform: translateY(-50%);
+            i {
+                color: var(--White);
+                font-size: 24px;
+            }
+        }
+        .tf-btn {
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            right: 8px;
+        }
+    }
+}
+.btn-search {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: var(--Bg-3);
+    i {
+        color: var(--White);
+        font-size: 24px;
+    }
+    &:hover {
+        background-color: var(--Primary);
+    }
+}
+.form-wrap {
+    padding: 1px;
+    border-radius: 100px;
+    background: linear-gradient(
+        180deg,
+        #232a78 0%,
+        #656ffe 48.98%,
+        #232a78 100%
+    );
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0px 0px 16px 0px #4a56ff40;
+}
+.form_contact {
+    max-width: 678px;
+    width: 100%;
+    margin: 0px auto;
+}
+#subscribe-msg {
+    color: red;
+    .notification_ok {
+        text-align: center;
+        font-weight: 500;
+        color: red;
+    }
+    .notification_error {
+        font-weight: 500;
+        text-align: center;
+        color: red;
+    }
+}
+.error {
+    color: red;
+    font-size: 12px;
+    line-height: 20px;
+}

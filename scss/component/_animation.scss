@@ -1,0 +1,135 @@
+@keyframes link-icon {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    49% {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+@keyframes slide-har {
+    0% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+@keyframes slide-har-2 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes tf-ani-tada {
+    from,
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%,
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+}
+.tf-ani-tada {
+    -webkit-animation: tf-ani-tada 2s infinite;
+    animation: tf-ani-tada 2s infinite;
+}
+@keyframes goTopToBottom {
+    49% {
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+@keyframes iconBounce {
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-3px);
+        -ms-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    60% {
+        -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+}
+@keyframes changeBG {
+    0% {
+        opacity: 0.1;
+        background: transparent;
+    }
+    50% {
+        opacity: 0.5;
+        background: var(--Primary);
+    }
+    100% {
+        opacity: 1;
+        background: var(--Primary);
+    }
+}
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
