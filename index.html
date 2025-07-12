@@ -42,8 +42,53 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="images/logo/favicon.svg">
     <link rel="apple-touch-icon-precomposed" href="images/logo/favicon.svg">
-<!--    <link rel="stylesheet" type="text/css" href="https://assets.mlcdn.com/fonts.css?version=1750852">-->
-<!--    <link rel="stylesheet" type="text/css" href="css/mailerlite.css">-->
+
+    <style type="text/css">
+        .input--hidden {
+            display: none !important
+        }
+
+        .sib-form-message-panel {
+            margin: 0 0 1.25rem 0;
+            width: 100%;
+            padding: .4375rem;
+            /*border: 1px solid;*/
+            display: none
+        }
+
+        .sib-form-message-panel--active {
+            display: inline-block
+        }
+
+        .sib-form-message-panel__text {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: .5rem;
+            justify-content: center;
+        }
+
+        .sib-form-message-panel__text .sib-icon {
+            contain: strict;
+            display: inline-block;
+            fill: currentColor
+        }
+
+        /*.sib-form-message-panel__text .sib-notification__icon {*/
+        /*    height: 1.5em;*/
+        /*    width: 1.5em;*/
+        /*    flex-shrink: 0;*/
+        /*    margin-right: calc(1rem - 1px)*/
+        /*}*/
+
+        .entry__error--primary {
+            display: none !important;
+        }
+
+        #error-message p{
+            color: #ee4e4e;
+        }
+    </style>
 </head>
 
 <body>
@@ -440,150 +485,100 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <div id="mlb2-28211854" class="form-wrap ml-subscribe-form ml-subscribe-form-28211854">
-<!--                                <div id="mlb2-28211854"-->
-<!--                                     class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-28211854">-->
-<!--                                    <div class="ml-form-align-center ">-->
-<!--                                        <div class="ml-form-embedWrapper embedForm">-->
+                        <div id="sib-form-container" class="wow fadeInUp" data-wow-delay="0.2s">
+                            <div id="error-message" class="sib-form-message-panel text text-center">
+                                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                    <p class="sib-form-message-panel__inner-text">
+                                      <b>Sorry!</b> Your subscription could not be saved. Please try again.
+                                    </p>
+                                </div>
+                            </div>
+                            <div></div>
+                            <div id="success-message" class="sib-form-message-panel text text-center">
+                                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                    <p class="sib-form-message-panel__inner-text">
+                                      <b>Thank you!</b> You have successfully joined our wait list.
+                                    </p>
+                                </div>
+                            </div>
+                            <div></div>
 
-
-<!--                                            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">-->
-
-<!--                                                <div class="ml-form-embedContent" style="margin-bottom: 0px; ">-->
-
-<!--                                                </div>-->
-
-<!--                                                <form class="ml-block-form"-->
-<!--                                                      action="https://assets.mailerlite.com/jsonp/1654133/forms/159490462654138265/subscribe"-->
-<!--                                                      data-code="" method="post" target="_blank">-->
-<!--                                                    <div class="ml-form-formContent">-->
-
-
-<!--                                                        <div class="ml-form-fieldRow ml-last-item">-->
-<!--                                                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">-->
-
-
-<!--                                                                &lt;!&ndash; input &ndash;&gt;-->
-<!--                                                                <input aria-label="email" aria-required="true"-->
-<!--                                                                       type="email" class="form-control"-->
-<!--                                                                       data-inputmask="" name="fields[email]"-->
-<!--                                                                       placeholder="Email" autocomplete="email">-->
-<!--                                                                &lt;!&ndash; /input &ndash;&gt;-->
-
-
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-
-<!--                                                    </div>-->
-
-
-<!--                                                    <input type="hidden" name="ml-submit" value="1">-->
-
-<!--                                                    <div class="ml-form-embedSubmit">-->
-
-<!--                                                        <button type="submit" class="primary">Subscribe</button>-->
-
-<!--                                                        <button disabled="disabled" style="display: none;" type="button"-->
-<!--                                                                class="loading">-->
-<!--                                                            <div class="ml-form-embedSubmitLoad"></div>-->
-<!--                                                            <span class="sr-only">Loading...</span>-->
-<!--                                                        </button>-->
-<!--                                                    </div>-->
-
-
-<!--                                                    <input type="hidden" name="anticsrf" value="true">-->
-<!--                                                </form>-->
-<!--                                            </div>-->
-
-<!--                                            <div class="ml-form-successBody row-success" style="display: none">-->
-
-<!--                                                <div class="ml-form-successContent">-->
-
-<!--                                                    <h4>Thank you!</h4>-->
-<!--                                                    <p>You have successfully joined our wait list.</p>-->
-
-<!--                                                </div>-->
-
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-
-                                <!--                                do nothing-->
-                                <!--                                do nothing-->
-                                <!--                                do nothing-->
-                                <!--                                do nothing-->
-                                <!--                                do nothing-->
-
-
-                                <form class="form_search type_2 style-2 ml-block-form" method="post"
-                                      accept-charset="utf-8"
-                                      action="https://assets.mailerlite.com/jsonp/1654133/forms/159490462654138265/subscribe"
-                                      data-code="" target="_blank">
-                                    <div id="subscribe-content" class="ml-validate-email ml-validate-required">
+                            <div id="sib-container" class="form-wrap">
+                                <form class="form_search type_2 style-2" id="sib-form" method="post"
+                                      accept-charset="utf-8" data-type="subscription"
+                                      action="https://461f6425.sibforms.com/serve/MUIFAFnCiGEqPIZAjBN_NHu7JoXn-pGluNhk5PpCR0snsTIMBAaQAgH6iIubI00N6qirNF3sJ7mteiwDoWJF01XDAK9oV-YztliLT9Z11_yOWmpz2ps_4p7zI69auQI27eB732KDyJcIf4n9OTW86tx7SX6_ha1PT41Vz6KUX_j2jU5gWEBnda9FYVDdQmoRPNdOhHe8tNLalhk3">
+                                    <div id="subscribe-content">
                                         <fieldset>
                                             <span class="icon">
-                                                <svg width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M21 5H3C2.44772 5 2 5.44772 2 6V19C2 19.5523 2.44772 20 3 20H21C21.5523 20 22 19.5523 22 19V6C22 5.44772 21.5523 5 21 5Z"
-                                                          stroke="#F4F7FF"
-                                                          stroke-width="2"
-                                                          stroke-linejoin="round"/>
-                                                    <path d="M6 9L12 14L18 9"
-                                                          stroke="#F4F7FF"
-                                                          stroke-width="2"
-                                                          stroke-linecap="round"
-                                                          stroke-linejoin="round"/>
+                                                    <path
+                                                            d="M21 5H3C2.44772 5 2 5.44772 2 6V19C2 19.5523 2.44772 20 3 20H21C21.5523 20 22 19.5523 22 19V6C22 5.44772 21.5523 5 21 5Z"
+                                                            stroke="#F4F7FF" stroke-width="2"
+                                                            stroke-linejoin="round"/>
+                                                    <path d="M6 9L12 14L18 9" stroke="#F4F7FF" stroke-width="2"
+                                                          stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                             </span>
-                                            <input id="subscribe-email" type="email" name="fields[email]"
-                                                   aria-label="email" aria-required="true" class="form-control"
-                                                   placeholder="Your Email Address..." autocomplete="email" required>
+                                            <div class="sib-input">
+                                                <div class="form__entry">
+                                                    <!--                                                    <input id="subscribe-email" type="email" name="email-form"-->
+                                                    <!--                                                           placeholder="Your Email Address..." required>-->
 
-                                            <!-- input -->
-                                            <!--                                            <input aria-label="email" aria-required="true"-->
-                                            <!--                                                   type="email" class="form-control"-->
-                                            <!--                                                   data-inputmask="" name="fields[email]"-->
-                                            <!--                                                   placeholder="Email" autocomplete="email">-->
-                                            <!-- /input -->
+                                                    <input class="input" type="email" id="EMAIL" name="EMAIL"
+                                                           autocomplete="off" placeholder="Your Email Address..."
+                                                           data-required="true" aria-label="email" aria-required="true"
+                                                           required/>
+
+                                                    <label class="entry__error entry__error--primary"></label>
+                                                </div>
+                                            </div>
                                         </fieldset>
-                                        <input type="hidden" name="ml-submit" value="1">
-                                        <input type="hidden" name="anticsrf" value="true">
                                         <button type="submit" class="tf-btn style-4">
                                             <span class="tf-overlay s1"></span>
                                             <span class="tf-overlay s2"></span>
+                                            <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
+                                                 viewBox="0 0 512 512" style="">
+                                                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/>
+                                            </svg>
                                             <span class="btn-text">
-                                                <span> Join Waitlist </span>
-                                            </span>
+                                                    <span> Join Waitlist </span>
+                                                </span>
                                         </button>
-<!--                                        <div class="ml-form-embedSubmit">-->
-<!--                                        </div>-->
                                     </div>
+
+                                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                                    <input type="hidden" name="locale" value="en">
                                 </form>
                             </div>
-                            <div class="ml-form-successBody row-success text text-center" style="display: none">
-                                <p><b>Thank you!</b> You have successfully joined our wait list.</p>
-                            </div>
-
-                            <script>
-                                function ml_webform_success_28211854() {
-                                    console.log("form submitted");
-                                    var $ = ml_jQuery || jQuery;
-                                    $('.row-success').show();
-                                    $('.ml-subscribe-form-28211854').hide();
-                                }
-                            </script>
 
 
-                            <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"
-                                    type="text/javascript"></script>
-                            <script>
-                                fetch("https://assets.mailerlite.com/jsonp/1654133/forms/159490462654138265/takel")
-                            </script>
                             <div id="subscribe-msg" class="mb-20"></div>
                         </div>
+
+                        <script>
+                            window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+                            window.LOCALE = 'en';
+                            window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+                            window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+                            window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+                            window.translation = {
+                                common: {
+                                    selectedList: '{quantity} list selected',
+                                    selectedLists: '{quantity} lists selected',
+                                    selectedOption: '{quantity} selected',
+                                    selectedOptions: '{quantity} selected',
+                                }
+                            };
+
+                            var AUTOHIDE = Boolean(0);
+                        </script>
+
+                        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
                             <div class="people-join flex justify-center">
                                 <div class="rating-wrap style-2">
